@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ATTESTFLE 2026 — Fransuz tili</title>
+<style>
+:root{--blue:#1769d2;--navy:#142d4e;--pale:#eef3f9;--line:#dce5f0;--green:#dff5eb;--gold:#ffedca}
+*{box-sizing:border-box}body{margin:0;background:#f3f6fa;color:var(--navy);font-family:Arial,Helvetica,sans-serif}
+header{padding:36px 20px 24px;text-align:center;background:white;border-bottom:1px solid var(--line)}
+.logo{font-size:14px;font-weight:800;letter-spacing:1.5px;color:var(--blue)}h1{font-size:clamp(27px,4vw,46px);margin:14px 0 8px}header p{color:#60748d;margin:0}
+.stats{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:22px auto 0}.stat{background:#f4f7fb;border:1px solid var(--line);border-radius:14px;padding:13px 24px;min-width:140px}.stat b{display:block;font-size:23px}.stat small{color:#6b7d93}
+main{max-width:1240px;margin:28px auto;padding:0 18px}.panel{background:white;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 12px 35px #16385a0b}
+.hidden{display:none!important}.intro{max-width:650px;margin:30px auto}.intro h2{text-align:center}.intro label{display:block;font-weight:700;margin:22px 0 9px}.intro input{width:100%;padding:17px;border:1px solid #cbd8e7;border-radius:13px;font-size:17px}
+button{border:0;border-radius:13px;padding:15px 21px;font-size:16px;font-weight:750;cursor:pointer}.primary{background:var(--blue);color:white;box-shadow:0 8px 20px #1769d233}.secondary{background:#edf2f8;color:#274361}.start{text-align:center;margin-top:22px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:22px}.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.count{font-weight:800;color:var(--blue);letter-spacing:1px}.timer{font-weight:800;background:#fff3e0;color:#a65b00;padding:10px 15px;border-radius:12px}
+h2.question{font-size:clamp(21px,2.5vw,29px);line-height:1.45;margin:28px 0 24px;white-space:pre-line}
+.options{display:grid;gap:12px}.option{display:flex;gap:14px;align-items:flex-start;width:100%;padding:16px;border:1px solid var(--line);border-radius:15px;background:white;text-align:left;color:#193452;font-size:18px;line-height:1.5}.option:hover{border-color:var(--blue);background:#f7faff}.option.selected{border:1.8px solid var(--blue);background:#eef5ff}.letter{flex:0 0 34px;height:34px;display:grid;place-items:center;border-radius:10px;background:#edf2f8;font-weight:800;color:#47627f}.option.selected .letter{background:var(--blue);color:white}.option input{position:absolute;opacity:0}
+.actions{display:flex;justify-content:space-between;gap:12px;margin-top:26px}.map h3{margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.nav{padding:11px 0;background:#eff3f8;color:#49627e;border-radius:10px}.nav.done{background:var(--green);color:#07865b}.nav.flag{background:var(--gold);color:#9b6500}.nav.current{outline:2px solid var(--blue);background:#eaf2ff;color:var(--blue)}
+.legend{font-size:13px;color:#71839a;line-height:2;margin-top:15px}.dot{display:inline-block;width:11px;height:11px;border-radius:4px;margin-right:7px}
+.progress{height:8px;background:#e6edf5;border-radius:10px;overflow:hidden;margin-bottom:20px}.bar{height:100%;background:var(--blue);width:0}
+.review{border-top:1px solid var(--line);padding:15px 0}.correct{color:#07865b;font-weight:700}.wrong{color:#bd4b42;font-weight:700}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.map{order:2}.panel{padding:20px}.grid{grid-template-columns:repeat(6,1fr)}}
+</style></head><body>
+<header><div class="logo">🇫🇷 ATTESTFLE 2026 · ATTESTATSIYA</div><h1>Bilimingizni namoyish etish vaqti keldi!</h1><p>Fransuz tili · B2/C1 · 60 ta savol</p>
+<div class="stats"><div class="stat"><b>60</b><small>Savol</small></div><div class="stat"><b>60 min</b><small>Vaqt</small></div><div class="stat"><b>B2/C1</b><small>Daraja</small></div></div></header>
+<main>
+<section id="start" class="panel intro"><h2>Testga xush kelibsiz!</h2><p style="text-align:center;color:#6b7d93">Har bir savolga bitta javob belgilang. Yakunda natijangiz va to‘g‘ri javoblar ko‘rsatiladi.</p><label for="candidate">Ism va familiyangiz</label><input id="candidate" placeholder="Ism Familiya" autocomplete="name"><div class="start"><button class="primary" id="startBtn">TESTNI BOSHLASH →</button></div></section>
+<section id="exam" class="hidden"><div class="progress"><div class="bar" id="bar"></div></div><div class="layout"><div class="panel"><div class="topline"><span class="count" id="count"></span><span class="timer" id="timer">60:00</span></div><h2 class="question" id="prompt"></h2><div class="options" id="options"></div><div class="actions"><button class="secondary" id="prev">← Oldingi</button><button class="primary" id="next">Keyingi →</button></div></div>
+<aside class="panel map"><h3>Savollar xaritasi</h3><div class="grid" id="nav"></div><div class="legend"><span class="dot" style="background:#dff5eb"></span>Javob berilgan<br><span class="dot" style="background:#eff3f8"></span>Javobsiz<br><span class="dot" style="background:#ffedca"></span>Belgilangan</div><button class="primary" id="finish" style="width:100%;margin-top:18px">Testni yakunlash</button></aside></div></section>
+<section id="result" class="panel hidden"><h2>Test yakunlandi!</h2><p id="who"></p><h1 id="score"></h1><p id="percent"></p><div id="details"></div><button class="primary" onclick="window.print()">Natijani chop etish / PDF</button></section>
+</main>
+<script src="questions.js"></script><script>
+const $=id=>document.getElementById(id);let name="",index=0,answers={},flags=new Set(),seconds=3600,interval=null,ended=false;
+function show(id){["start","exam","result"].forEach(x=>$(x).classList.toggle("hidden",x!==id))}
+function start(){name=$("candidate").value.trim();if(!name){$("candidate").focus();return}show("exam");render();interval=setInterval(()=>{seconds--;let m=String(Math.floor(seconds/60)).padStart(2,"0"),s=String(seconds%60).padStart(2,"0");$("timer").textContent=m+":"+s;if(seconds<=0)finish()},1000)}
+function render(){let q=QUESTIONS[index];$("count").textContent=`SAVOL ${q.number} / ${QUESTIONS.length}`;$("prompt").textContent=q.prompt;$("options").innerHTML="";
+q.options.forEach(o=>{let b=document.createElement("button");b.type="button";b.className="option"+(answers[q.number]===o.label?" selected":"");let l=document.createElement("span");l.className="letter";l.textContent=o.label;let t=document.createElement("span");t.textContent=o.text;b.append(l,t);b.onclick=()=>{answers[q.number]=o.label;render()};$("options").append(b)});
+$("prev").disabled=index===0;$("prev").style.opacity=index===0?".4":"1";$("next").textContent=index===QUESTIONS.length-1?"Yakunlash →":"Keyingi →";$("bar").style.width=((index+1)/QUESTIONS.length*100)+"%";drawNav()}
+function drawNav(){$("nav").innerHTML="";QUESTIONS.forEach((q,i)=>{let b=document.createElement("button");b.className="nav"+(answers[q.number]?" done":"")+(flags.has(q.number)?" flag":"")+(i===index?" current":"");b.textContent=q.number;b.onclick=()=>{index=i;render()};b.oncontextmenu=e=>{e.preventDefault();flags.has(q.number)?flags.delete(q.number):flags.add(q.number);drawNav()};$("nav").append(b)})}
+function finish(){if(ended)return;if(!confirm("Testni yakunlaysizmi?"))return;ended=true;clearInterval(interval);let right=0;QUESTIONS.forEach(q=>{if(answers[q.number]===q.answer)right++});show("result");$("who").textContent="Ishtirokchi: "+name;$("score").textContent=right+" / "+QUESTIONS.length;$("percent").textContent="Natija: "+Math.round(right/QUESTIONS.length*100)+"%";$("details").innerHTML="";
+QUESTIONS.forEach(q=>{let d=document.createElement("div");d.className="review";let a=answers[q.number]||"Javob berilmagan";d.innerHTML=`<b>${q.number}. ${escapeHtml(q.prompt)}</b><p>Sizning javobingiz: ${escapeHtml(a)} · To‘g‘ri javob: <span class="correct">${q.answer}</span> · <span class="${a===q.answer?'correct':'wrong'}">${a===q.answer?'To‘g‘ri':'Xato'}</span></p>`;$("details").append(d)})}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+$("startBtn").onclick=start;$("prev").onclick=()=>{if(index>0){index--;render()}};$("next").onclick=()=>{if(index<QUESTIONS.length-1){index++;render()}else finish()};$("finish").onclick=finish;
+</script></body></html>
